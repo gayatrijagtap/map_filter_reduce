@@ -1,0 +1,22 @@
+#! /bin/bash
+
+node testMappingLengths.js
+node testNumbersAboveThreshold.js
+node testNumbersBeloweThreshold.js
+node testAscendingOrder.js              
+node testOddSeries.js
+node testCountingEvenNumbers.js         
+node testPartitionArray.js
+node testCountingOddNumbers.js          
+node testReverse.js
+node testDescendingOrder.js             
+node testEvenSeries.js                  
+node testRotateArray.js
+node testSelectingEverySecondElement.js
+node testFindAverage.js                 
+node testSmallestNumber.js
+node testGreatestNumber.js              
+node testSumOfAListOfNumbers.js
+node testIndexOfANumber.js              
+node testIsSubset.js                    
+node testZipArray.js
