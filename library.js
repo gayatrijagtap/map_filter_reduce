@@ -19,3 +19,21 @@ const filter = function(elements,functionRef) {
 }
 
 exports.filter = filter;
+
+const reduce = function(elements,functionRef,accumulator) {
+  let result;
+  if(accumulator) {
+    result = functionRef(accumulator,elements[0]);
+    for(let index = 1; index < elements.length; index++) {
+      result = functionRef(result,elements[index]);
+    }
+    return result;
+  }
+  result = functionRef(elements[0],elements[1]);
+  for(let index = 2; index < elements.length; index++) {
+    result = functionRef(result,elements[index]);
+  }
+  return result;
+}
+
+exports.reduce = reduce;
