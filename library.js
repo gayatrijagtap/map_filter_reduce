@@ -1,3 +1,5 @@
+//--------------------------map function---------------------------------
+
 const map = function(elements,functionRef) {
   let mappedElements =[];
   for(let index = 0; index < elements.length; index++) {
@@ -7,6 +9,8 @@ const map = function(elements,functionRef) {
 }
 
 exports.map = map;
+
+//---------------------------filter function-------------------------------
 
 const filter = function(elements,functionRef) {
   let mappedElements = [];
@@ -19,6 +23,8 @@ const filter = function(elements,functionRef) {
 }
 
 exports.filter = filter;
+
+//------------------------------reduce function---------------------------------
 
 const reduce = function(elements,functionRef,accumulator) {
   let result;
