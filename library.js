@@ -27,17 +27,15 @@ exports.filter = filter;
 //------------------------------reduce function---------------------------------
 
 const reduce = function(elements,functionRef,accumulator) {
-  let result;
+  let result = elements[0];
+  let index = 1;
   if(accumulator) {
-    result = functionRef(accumulator,elements[0]);
-    for(let index = 1; index < elements.length; index++) {
-      result = functionRef(result,elements[index]);
-    }
-    return result;
+    result = accumulator;
+    index = 0;
   }
-  result = functionRef(elements[0],elements[1]);
-  for(let index = 2; index < elements.length; index++) {
+  while ( index < elements.length ) {
     result = functionRef(result,elements[index]);
+    index++;
   }
   return result;
 }
