@@ -24,7 +24,7 @@ const filter = function(elements,predicate) {
 
 exports.filter = filter;
 
-//------------------------------reduce function---------------------------------
+//------------------------------reduce function-------------------------------------
 
 const reduce = function(elements,reducer,accumulator) {
   let result = elements[0];
