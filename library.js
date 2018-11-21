@@ -1,9 +1,9 @@
 //--------------------------map function---------------------------------
 
-const map = function(elements,functionRef) {
+const map = function(elements,mapper) {
   let mappedElements =[];
   for(let index = 0; index < elements.length; index++) {
-    mappedElements[ index ] = functionRef( elements[ index ] );
+    mappedElements[ index ] = mapper( elements[ index ] );
   }
   return mappedElements;
 }
@@ -12,10 +12,10 @@ exports.map = map;
 
 //---------------------------filter function-------------------------------
 
-const filter = function(elements,functionRef) {
+const filter = function(elements,predicate) {
   let mappedElements = [];
   for(let index = 0; index < elements.length; index++) {
-    if(functionRef(elements[ index ]) != false || functionRef(elements[ index ]) != 0) {
+    if(predicate(elements[ index ]) != false || predicate(elements[ index ]) != 0) {
       mappedElements.push( elements[index] );
     }
   }
@@ -26,7 +26,7 @@ exports.filter = filter;
 
 //------------------------------reduce function---------------------------------
 
-const reduce = function(elements,functionRef,accumulator) {
+const reduce = function(elements,reducer,accumulator) {
   let result = elements[0];
   let index = 1;
   if(accumulator) {
@@ -34,7 +34,7 @@ const reduce = function(elements,functionRef,accumulator) {
     index = 0;
   }
   while ( index < elements.length ) {
-    result = functionRef(result,elements[index]);
+    result = reducer(result,elements[index]);
     index++;
   }
   return result;
