@@ -5,18 +5,26 @@ const { max } = require('../utilityFun.js');
 
 describe( 'reduce' , function() {
 
-  it( 'should return output without passing accumulator' , function() {
+  it( 'should reduce the array when accumulator is not passed' , function() {
     assert.equal(reduce([1,2,3,4,5],add),15);
     assert.equal(reduce([1,2],add),3);
     assert.equal(reduce([1,2,3,4,5],max),5);
     assert.equal(reduce([1,2],max),2);
   });
 
-  it( 'should return output when accumulator is passed' , function() {
+  it( 'should reduce the array when accumulator is passed' , function() {
     assert.equal(reduce([1],add,2),3);
     assert.equal(reduce([1,2,3,4,5],add,2),17);
     assert.equal(reduce([1,2,3,4,5],max,9),9);
     assert.equal(reduce([1,2],max,9),9);
+  });
+
+  it( 'should reduce the array when accumulator is 0' , function() {
+    assert.equal(reduce([-1,-2],max,0),0);
+  });
+
+  it( 'should reduce on an empty array' , function() {
+    assert.equal(reduce([],add,2),2);
   });
 
 })

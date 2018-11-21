@@ -4,7 +4,7 @@ const { isEven } = require('../utilityFun.js');
 const { isOdd } = require('../utilityFun.js');
 
 describe( 'filter' , function() {
-  it( 'should filter for array with multiple elements' , function() {
+  it( 'should return filtered array of same length for array with multiple elements' , function() {
     assert.deepEqual(filter([1,2,3,4,5],isEven),[2,4]);
     assert.deepEqual(filter([1,2,3],isEven),[2]);
     assert.deepEqual(filter([1,2,3],isOdd),[1,3]);

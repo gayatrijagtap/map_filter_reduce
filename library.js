@@ -27,11 +27,11 @@ exports.filter = filter;
 //------------------------------reduce function-------------------------------------
 
 const reduce = function(elements,reducer,accumulator) {
-  let result = elements[0];
-  let index = 1;
-  if(accumulator) {
-    result = accumulator;
-    index = 0;
+  let result = accumulator;
+  let index = 0;
+  if(accumulator == undefined) {
+    result = elements[0];
+    index = 1;
   }
   while ( index < elements.length ) {
     result = reducer(result,elements[index]);
