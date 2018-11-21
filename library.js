@@ -13,13 +13,13 @@ exports.map = map;
 //---------------------------filter function-------------------------------
 
 const filter = function(elements,predicate) {
-  let mappedElements = [];
+  let filteredElements = [];
   for(let index = 0; index < elements.length; index++) {
     if(predicate(elements[ index ]) != false || predicate(elements[ index ]) != 0) {
-      mappedElements.push( elements[index] );
+      filteredElements.push( elements[index] );
     }
   }
-  return mappedElements;
+  return filteredElements;
 }
 
 exports.filter = filter;
