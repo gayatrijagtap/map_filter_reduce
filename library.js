@@ -10,7 +10,7 @@ const map = function(elements,mapper) {
 
 exports.map = map;
 
-//---------------------------filter function-------------------------------
+//---------------------------filter function-------------------------------------
 
 const filter = function(elements,predicate) {
   let filteredElements = [];
