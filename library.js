@@ -1,38 +1,38 @@
 //--------------------------map function---------------------------------
 
-const map = function(elements,mapper) {
-  let mappedElements =[];
-  for(let index = 0; index < elements.length; index++) {
-    mappedElements[ index ] = mapper( elements[ index ] );
+const map = function( list,mapper ) {
+  let mappedList = [];
+  for( let item of list ) {
+    mappedList.push( mapper( item ) );
   }
-  return mappedElements;
+  return mappedList;
 }
 
 exports.map = map;
 
 //---------------------------filter function-------------------------------------
 
-const filter = function(elements,predicate) {
-  let filteredElements = [];
-  for(let index = 0; index < elements.length; index++) {
-    if(predicate(elements[ index ]) != false || predicate(elements[ index ]) != 0) {
-      filteredElements.push( elements[index] );
+const filter = function( list,predicate ) {
+  let filteredList = [];
+  for( let item of list ) {
+    if( predicate(item )) { 
+      filteredList.push( item );
     }
   }
-  return filteredElements;
+  return filteredList;
 }
 
 exports.filter = filter;
 
 //------------------------------reduce function-------------------------------------
 
-const reduce = function(elements,reducer,accumulator) {
+const reduce = function(list,reducer,accumulator) {
   if(accumulator != undefined) {
-    elements.unshift(accumulator);
+    list.unshift(accumulator);
   }
-  let result = elements[0];
-  for( let index = 1; index < elements.length; index++ ) {
-    result = reducer(result,elements[index]);
+  let result = list[0];
+  for( let index = 1; index < list.length; index++ ) {
+    result = reducer(result,list[index]);
   }
   return result;
 }
