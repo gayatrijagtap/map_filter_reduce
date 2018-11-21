@@ -1,7 +1,7 @@
 //--------------------------map function---------------------------------
 
 const map = function( list,mapper ) {
-  let mappedList = [];
+  let mappedList = new Array();
   for( let item of list ) {
     mappedList.push( mapper( item ) );
   }
@@ -13,7 +13,7 @@ exports.map = map;
 //---------------------------filter function-------------------------------------
 
 const filter = function( list,predicate ) {
-  let filteredList = [];
+  let filteredList = new Array();
   for( let item of list ) {
     if( predicate(item )) { 
       filteredList.push( item );
