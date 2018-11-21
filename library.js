@@ -30,9 +30,9 @@ const reduce = function(list,reducer,accumulator) {
   if(accumulator != undefined) {
     list.unshift(accumulator);
   }
-  let result = list[0];
-  for( let index = 1; index < list.length; index++ ) {
-    result = reducer(result,list[index]);
+  let result = list.shift();
+  for( let item of list ) {
+    result = reducer(result,item);
   }
   return result;
 }
