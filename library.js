@@ -53,3 +53,20 @@ const reducerGenerator = function(mapper) {
 }
 
 exports.mapPrime = mapPrime;
+
+//----------------------------------filterPrime function-----------------------------=
+
+const filterPrime = function(list,predicate) {
+  return reduce(list,reducerForFilterGen(predicate),[]);
+}
+
+const reducerForFilterGen = function(predicate) {
+  return function(accumulator,element) {
+    if(predicate(element)) {
+      accumulator.push(element);
+    }
+      return accumulator;
+  }
+}
+
+exports.filterPrime = filterPrime;
