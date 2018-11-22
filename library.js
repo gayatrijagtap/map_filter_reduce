@@ -38,3 +38,18 @@ const reduce = function(list,reducer,accumulator) {
 }
 
 exports.reduce = reduce;
+
+//--------------------------------mapPrime function----------------------------------
+
+const mapPrime = function(list,mapper) {
+  return reduce(list,reducerGenerator(mapper),[]);
+}
+
+const reducerGenerator = function(mapper) {
+  return function(accumulator,element) {
+    accumulator.push(mapper(element));
+    return accumulator;
+  }
+}
+
+exports.mapPrime = mapPrime;
