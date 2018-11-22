@@ -27,11 +27,12 @@ exports.filter = filter;
 //------------------------------reduce function-------------------------------------
 
 const reduce = function(list,reducer,accumulator) {
+  let items = list;
   if(accumulator != undefined) {
-    list.unshift(accumulator);
+    items.unshift(accumulator);
   }
-  let result = list.shift();
-  for( let item of list ) {
+  let result = items.shift();
+  for( let item of items ) {
     result = reducer(result,item);
   }
   return result;
@@ -41,13 +42,13 @@ exports.reduce = reduce;
 
 //--------------------------------mapPrime function----------------------------------
 
-const mapPrime = function(list,mapper) {
-  return reduce(list,reducerGenerator(mapper),[]);
+const mapPrime = function( list,mapper ) {
+  return reduce( list,reducerForMapGen( mapper ),[] );
 }
 
-const reducerGenerator = function(mapper) {
-  return function(accumulator,element) {
-    accumulator.push(mapper(element));
+const reducerForMapGen = function( mapper ) {
+  return function( accumulator,item ) {
+    accumulator.push( mapper( item ) );
     return accumulator;
   }
 }
@@ -56,14 +57,14 @@ exports.mapPrime = mapPrime;
 
 //----------------------------------filterPrime function-----------------------------=
 
-const filterPrime = function(list,predicate) {
-  return reduce(list,reducerForFilterGen(predicate),[]);
+const filterPrime = function( list,predicate ) {
+  return reduce( list,reducerForFilterGen( predicate ),[] );
 }
 
-const reducerForFilterGen = function(predicate) {
-  return function(accumulator,element) {
-    if(predicate(element)) {
-      accumulator.push(element);
+const reducerForFilterGen = function( predicate ) {
+  return function( accumulator,item ) {
+    if( predicate( item ) ) {
+      accumulator.push( item );
     }
       return accumulator;
   }
