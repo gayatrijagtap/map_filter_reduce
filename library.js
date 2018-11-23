@@ -8,8 +8,6 @@ const map = function( list,mapper ) {
   return mappedList;
 }
 
-exports.map = map;
-
 //---------------------------filter function-------------------------------------
 
 const filter = function( list,predicate ) {
@@ -22,12 +20,10 @@ const filter = function( list,predicate ) {
   return filteredList;
 }
 
-exports.filter = filter;
-
 //------------------------------reduce function-------------------------------------
 
 const reduce = function(list,reducer,accumulator) {
-  let items = list;
+  let items = list.slice() ;
   if(accumulator != undefined) {
     items.unshift(accumulator);
   }
@@ -37,8 +33,6 @@ const reduce = function(list,reducer,accumulator) {
   }
   return result;
 }
-
-exports.reduce = reduce;
 
 //--------------------------------mapPrime function----------------------------------
 
@@ -52,8 +46,6 @@ const reducerForMapGen = function( mapper ) {
     return accumulator;
   }
 }
-
-exports.mapPrime = mapPrime;
 
 //----------------------------------filterPrime function-----------------------------=
 
@@ -70,4 +62,4 @@ const reducerForFilterGen = function( predicate ) {
   }
 }
 
-exports.filterPrime = filterPrime;
+module.exports = { map , filter , reduce , mapPrime , filterPrime };
